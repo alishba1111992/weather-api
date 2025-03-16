@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<body>    
+    <h1>!!!WEATHER API!!!</h1>
+    <form onsubmit="getweather(); return false;">
+<label for="city name">PICK YOUR CITY </label>
+<input type="text"  name="city name" id="temp1" required placeholder="Enter  your city name">
+<button type="submit"> Check your weather from here</button>
+    </form>
+<script>
+function getweather(){
+let  pick_Cityname= document.getElementById("temp1").value;
+alert("pick_Cityname ")
+console.log("pick_Cityname")
+// data gather
+axios.get(`https://api.weatherapi.com/v1/current.json?key=%20ea5876586aef4478a92142650250303%20&q=London&aqi=yes`)
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+}
+</script>
+</body>
+</html>
